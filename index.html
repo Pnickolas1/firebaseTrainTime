@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Train Time</title>
+	
+	<!-- CONNECT JS FILE -->
+	<link rel="stylesheet" type="text/css" href="assets/logic.js">
+
+	<!-- LINK TO CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+
+	<!-- LINK TO TWITTER BOOSTRAP -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+<body>
+	 <div class="jumboton text -center">
+	 	<h1>Train Time</h1>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel-primary panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">Train Times</h5>
+					</div>
+					<div class="panel-body padding-bottom-none">
+						<div class="col-sm-12 text-center">Train Name</div>
+						<div class="col-sm-12 text-center">Destination</div>
+						<div class="col-sm-12 text-center">Frequency</div>
+						<div class="col-sm-12 text-center">Next Arrival</div>
+						<div class="col-sm-12 text-center">Minutes Away</div>
+					<hr>
+					</div>
+					<div class="panel-body padding-top-none">
+						<div class="col-sm-12 text-center trainName data"></div>
+						<div class="col-sm-12 text-center destination data"></div>
+						<div class="col-sm-12 text-center frequency data"></div>
+						<div class="col-sm-12 text-center nextArrival data"></div>
+						<div class="col-sm-12 text-center minutesAway data"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel-primary panel">
+					<div class="panel-heading">
+						<h5 class="panel-title">Add Train</h5>
+					</div>
+				<form>
+					<div class="panel-body">
+						<div class="train-form">
+							<label for="trainName">Train Name</label>
+							<input type="text" class="form-control" id="trainName">
+						</div>
+						<div class="train-form">
+							<label for="dest">Destination</label>
+							<input type="text" class="form-control" id="destinationLocation">
+						</div>
+						<div class="train-form">
+							<label for="firstTrainTime">First Train Time [24 HOUR]</label>
+							<input type="time" class="form-control" id="firstTrain">
+						</div>
+						<div class="frequency">
+							<label for="frequentTrains">Frequency [MINS]</label>
+							<input type="number" class="form-control" id="frequencyInMins">
+						</div>
+				</form>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+
+
+
+	 
+</body>
+</html>
