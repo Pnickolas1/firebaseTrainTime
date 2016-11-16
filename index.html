@@ -4,19 +4,29 @@
 	<meta charset="UTF-8">
 	<title>Train Time</title>
 	
-	<!-- CONNECT JS FILE -->
-	<link rel="stylesheet" type="text/css" href="assets/logic.js">
-
 	<!-- LINK TO CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
 
 	<!-- LINK TO TWITTER BOOSTRAP -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+	<!-- JQUERY CDN -->
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  	<!-- SCRIPT TO FIREBASE -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>	
+
+	<!-- CONNECT JS FILE -->
+	<script type="text/javascript" src="assets/logic.js"></script>
+
+	<!-- MOMENT JS -->
+	 <script src="https://cdn.jsdelivr.net/momentjs/2.16.0/moment.min.js" ></script>
 
 </head>
 <body>
-	 <div class="jumboton text -center">
+	 <div class="jumbotron text-center">
 	 	<h1>Train Time</h1>
 	</div>
 	<div class="container">
@@ -27,22 +37,23 @@
 						<h5 class="panel-title">Train Times</h5>
 					</div>
 					<div class="panel-body padding-bottom-none">
-						<div class="col-sm-12 text-center">Train Name</div>
-						<div class="col-sm-12 text-center">Destination</div>
-						<div class="col-sm-12 text-center">Frequency</div>
-						<div class="col-sm-12 text-center">Next Arrival</div>
-						<div class="col-sm-12 text-center">Minutes Away</div>
-					<hr>
-					</div>
+						<div class="col-sm-2 text-center"><b>Train Name</b></div>
+						<div class="col-sm-2 text-center"><b>Destination</b></div>
+						<div class="col-sm-2 text-center"><b>Frequency</b></div>
+						<div class="col-sm-2 text-center"><b>Next Arrival</b></div>
+						<div class="col-sm-2 text-center"><b>Minutes Away</b></div>
+						<hr>
+				 	</div>
 					<div class="panel-body padding-top-none">
-						<div class="col-sm-12 text-center trainName data"></div>
-						<div class="col-sm-12 text-center destination data"></div>
-						<div class="col-sm-12 text-center frequency data"></div>
-						<div class="col-sm-12 text-center nextArrival data"></div>
-						<div class="col-sm-12 text-center minutesAway data"></div>
+						<div class="col-sm-2 text-center trainName data"></div>
+						<div class="col-sm-2 text-center destination data"></div>
+						<div class="col-sm-2 text-center frequency data"></div>
+						<div class="col-sm-2 text-center nextArrival data"></div>
+						<div class="col-sm-2 text-center minutesAway data"></div>
 					</div>
 				</div>
 			</div>
+			<br>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
@@ -68,11 +79,14 @@
 							<label for="frequentTrains">Frequency [MINS]</label>
 							<input type="number" class="form-control" id="frequencyInMins">
 						</div>
+						<hr>
+					<button id="submit" class="btn btn-succes">Submit</button>
 				</form>
+					</div>
 				</div>
-			</div>
 		</div>		
 	</div>
+
 
 
 
