@@ -23,10 +23,10 @@ var database = firebase.database();
 
 
 $('button').on('click',function(){
-	var trainName = $('#trainName').val().trim();
-	var destination = $("#destination").val().trim();
+	var trainName = $('#trainName').val();
+	var destination = $("#destination").val();
 	var firstTrain = $('#firstTrain').val();
-	var frequency = parseInt($("#frequencyInMins").val().trim(),10);
+	var frequency = parseInt($("#frequencyInMins").val(),10);
 
 	console.log(trainName);
 	console.log(trainName.length);
