@@ -1,0 +1,17 @@
+
+.jumbotron {
+    background: rgba(200, 200, 200, 0.5);
+    border-bottom: solid grey 1px;
+}
+
+.padding-bottom-none {
+    padding-bottom: 0px;
+}
+
+.padding-top-none {
+    padding-top: 0px;
+}
+
+hr {
+    margin-bottom: 5px;
+}
