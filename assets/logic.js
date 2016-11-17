@@ -17,28 +17,63 @@ $(document).ready(function(){
 var database = firebase.database();
 	console.log("Firebase Config: ",config.databaseURL);
 
-	var timeNow = moment().format("kk:mm:ss a");
-	console.log(timeNow);
-
-
 
 $('button').on('click',function(){
 	var trainName = $('#trainName').val();
-	var destination = $("#destination").val();
-	var firstTrain = $('#firstTrain').val();
-	var frequency = parseInt($("#frequencyInMins").val(),10);
+	var destination = $("#destinationLocation").val();
+	//var firstTrain = $('#firstTrain').val();
+	var firstTrain = "13:00"
+	var freqInt = parseInt($("#frequencyInMins").val(),10);
 
 	console.log(trainName);
 	console.log(trainName.length);
+	console.log(firstTrain);
 	console.log(destination);
-	console.log(frequency);
+	console.log(freqInt);
 
 
-// if( trainName.length > 0 && destination.length > 0 && firstTrain > 0 && frequency > 0){
-		
+
+if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 
 
-// };
+	// GET TIME NOW
+	var currentTime = moment();
+      console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm a"));
+
+	//CONVERT TRAIN TIME TO MOMENT READABLE
+	var firstTrainTime = moment(firstTrain, "HH:mm a").subtract(1, "years");	
+      console.log("first train time is: ", moment(firstTrainTime).format("HH:mm a"));
+    
+    var momentFirstTrain = moment(firstTrainTime).format("HH:mm a");
+      console.log('moment first train: ', momentFirstTrain);
+      
+     // GET DIFFERENCE IN TIME
+     var timeDiff = moment().diff(moment(firstTrainTime), "minutes");
+	console.log("Difference in time: ", timeDiff);
+
+	var remainderTime = timeDiff % freqInt;
+		console.log(remainderTime);
+
+	// Minutes until train 
+	var minsTillTrain = freqInt - remainderTime;
+		console.log(minsTillTrain);
+
+
+	//next train
+	var nextTrain = moment().add(minsTillTrain,"minutes");
+		trainDate = moment(nextTrain).format("hh:mm:ss a")
+		console.log("Arrival time: ", moment(nextTrain).format("hh:mm:ss a"));
+
+
+
+	$(".train").append( "<p>" + trainName + "</p>");
+	$(".dest").append("<p>" + destination + "</p>");
+	$(".freq").append("<p>" + freqInt + "</p>");
+	$(".nextArrival").append("<p>" + trainDate + "</p>");
+	$(".minsAway").append("<p>" + minsTillTrain + "</p>");
+
+
+};
 
 
 
