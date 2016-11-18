@@ -18,11 +18,17 @@ var database = firebase.database();
 	console.log("Firebase Config: ",config.databaseURL);
 
 
+//INITIAL VALUES
+	var train = "";
+	var destination = "";
+	var firstTrain = 0;
+	var freqInt = 0;
+
 $('button').on('click',function(){
 	var trainName = $('#trainName').val();
 	var destination = $("#destinationLocation").val();
 	//var firstTrain = $('#firstTrain').val();
-	var firstTrain = "13:00"
+	var firstTrain = "08:30"
 	var freqInt = parseInt($("#frequencyInMins").val(),10);
 
 	console.log(trainName);
@@ -43,9 +49,6 @@ if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 	//CONVERT TRAIN TIME TO MOMENT READABLE
 	var firstTrainTime = moment(firstTrain, "HH:mm a").subtract(1, "years");	
       console.log("first train time is: ", moment(firstTrainTime).format("HH:mm a"));
-    
-    var momentFirstTrain = moment(firstTrainTime).format("HH:mm a");
-      console.log('moment first train: ', momentFirstTrain);
       
      // GET DIFFERENCE IN TIME
      var timeDiff = moment().diff(moment(firstTrainTime), "minutes");
@@ -71,6 +74,17 @@ if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 	$(".freq").append("<p>" + freqInt + "</p>");
 	$(".nextArrival").append("<p>" + trainDate + "</p>");
 	$(".minsAway").append("<p>" + minsTillTrain + "</p>");
+
+
+	//PUSH DATA TO FIREBASE
+	database.ref().push({
+		trainName: trainName,
+		destination: destination,
+		firstTrain: firstTrain,
+		nextArrival: trainDate,
+		minutesAWay: minsTillTrain,
+		dateAdded: firebase.database.ServerValue.TIMESTAMP
+	});
 
 
 };
