@@ -17,7 +17,6 @@ $(document).ready(function(){
 var database = firebase.database();
 	console.log("Firebase Config: ",config.databaseURL);
 
-
 //INITIAL VALUES
 	var train = "";
 	var destination = "";
@@ -27,8 +26,14 @@ var database = firebase.database();
 $('button').on('click',function(){
 	var trainName = $('#trainName').val();
 	var destination = $("#destinationLocation").val();
-	//var firstTrain = $('#firstTrain').val();
-	var firstTrain = "08:30"
+	var firstTrain = $('#firstTrain').val();
+	// var firstTrain = "08:30"
+	firstTrain = firstTrain.match(new RegExp( $("#firstTrain").attr('pattern'), 'igm'));
+	if (!firstTrain) {
+		// failure
+		return;
+	}
+	firstTrain = firstTrain[0];
 	var freqInt = parseInt($("#frequencyInMins").val(),10);
 
 	console.log(trainName);
@@ -38,9 +43,7 @@ $('button').on('click',function(){
 	console.log(freqInt);
 
 
-
 if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
-
 
 	// GET TIME NOW
 	var currentTime = moment();
@@ -68,7 +71,6 @@ if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 		console.log("Arrival time: ", moment(nextTrain).format("hh:mm:ss a"));
 
 
-
 	$(".train").append( "<p>" + trainName + "</p>");
 	$(".dest").append("<p>" + destination + "</p>");
 	$(".freq").append("<p>" + freqInt + "</p>");
@@ -88,9 +90,6 @@ if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 
 
 };
-
-
-
 
 return false; // DO NOT RELOAD PAGE AND END 
 }); // ENDS ON BUTTON CLICK FUNCTIONALITY

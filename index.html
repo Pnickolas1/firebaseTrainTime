@@ -73,7 +73,7 @@
 						</div>
 						<div class="train-form">
 							<label for="firstTrainTime">First Train Time [24 HOUR]</label>
-							<input type="time" name="my_time" class="form-control" id="firstTrain">
+							<input type="text" pattern="(?:[01]|2(?![4-9])){1}\d{1}:[0-5]{1}\d{1}" name="my_time" class="form-control" id="firstTrain">
 						</div>
 						<div class="frequency">
 							<label for="frequentTrains">Frequency [MINS]</label>
