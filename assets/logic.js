@@ -89,6 +89,13 @@ if( trainName.length > 0 && destination.length > 0 && freqInt > 0){
 	});
 
 
+
+// EMPTY FORM INPUT FIELDS 
+	$('#trainName').val('');
+	$('#destinationLocation').val('');
+	$('#firstTrain').val('');
+	$('#frequencyInMins').val('');
+
 };
 
 return false; // DO NOT RELOAD PAGE AND END 
